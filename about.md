@@ -3,13 +3,19 @@ layout: page
 title: About
 permalink: /about/
 ---
+<img style="float: right; margin-left: 20px;" src="/assets/aaronkjackson-above-web-183x300.jpg" />
+I am a software developer. I have written code for hospitals, universities, parking lots, event centers, cities, a hockey team, and more.  I am currently writing code for [AlertSense][alertsense].  When I am not writing code I enjoy running, cycling, and launching things into the air.
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+<p>
+My own html
+</p>
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+{% highlight JavaScript %}
+var me = {
+  "name": "Aaron Jackson",
+  "work": "AlertSense",
+  "languages": ["JavaScript", "C#", "Java"],
+}
+{% endhighlight %}
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+[alertsense]: http://www.alertsense.com
