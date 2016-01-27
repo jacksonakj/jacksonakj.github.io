@@ -2,6 +2,7 @@
 layout: post
 title: "Is your stored procedure slower than a normal query?"
 date: "2013-04-11"
+tags: SQL
 ---
 On occasion when a query is wrapped in a store procedure the execution time is horribly slow.  This is due to a common issue known as “parameter sniffing” in SQL Server.  A couple of solutions are commonly recommended;
 
