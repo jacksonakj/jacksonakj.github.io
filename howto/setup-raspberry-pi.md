@@ -95,8 +95,64 @@ mkdir ~/.ssh
 nano ~/.ssh/authorized_keys
 {% endhighlight %}
 
+### Install JDK 1.8 or better
+1.  Download the [Linux ARM 32 Hard Float ABI][jdkdownload] Java SE Development Kit from Oracle.
+2.  Extract it to /opt/java.   `sudo tar xvzf ~/jdk-8u73-linux-arm32-vfp-hflt.tar.gz -C /opt/java`
+3.  Let the system know about the new version of java.
+
+{% highlight bash %}
+sudo mkdir -p -v /opt/java
+sudo tar xvzf ~/jdk-8u73-linux-arm32-vfp-hflt.tar.gz -C /opt/java
+
+sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_73/bin/java 1
+sudo update-alternatives --install /usr/bin/javac j%avac /opt/java/jdk1.8.0_73/bin/javac 1
+
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+{% endhighlight %}
+
+Add JAVA_HOME environment variable
+{% highlight bash %}
+nano ~/.bashrc
+
+export JAVA_HOME="/opt/java/jdk1.8.0"
+export PATH=$PATH:$JAVA_HOME/bin
+{% endhighlight %}
+
+### Install openHAB
+
+#### Download
+
+{% highlight bash %}
+wget https://bintray.com/artifact/download/openhab/bin/distribution-1.8.1-runtime.zip
+wget https://bintray.com/artifact/download/openhab/bin/distribution-1.8.1-addons.zip
+wget https://bintray.com/artifact/download/openhab/bin/distribution-1.8.1-demo.zip
+{% endhighlight %}
+
+#### Extract the distribution-<version>-runtime.zip to /opt/openhab
+{% highlight bash %}
+sudo mkdir -p -v /opt/openhab
+sudo unzip distribution-1.8.1-runtime.zip -d /opt/openhab
+sudo mkdir -p -v /opt/openhab/all_addons
+sudo unzip distribution-1.8.1-addons.zip -d /opt/openhab/all_addons
+{% endhighlight %}
+
+#### Create openHAB configuration
+{% highlight bash %}
+sudo cp /opt/openhab/configurations/openhab_default.cfg /opt/openhab/configurations/openhab.cfg
+
+{% endhighlight %}
+
+#### Select addons
+Copy add ons from `all_addons` to `addons` for support devices and features.
+
+#### Configure openHAB
+
+#### Configure as a service
 
 
 
 
+[openhabdownload]:http://www.openhab.org/getting-started/
+[jdkdownload]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [1]: https://www.raspberrypi.org/documentation/installation/installing-images/linux.md

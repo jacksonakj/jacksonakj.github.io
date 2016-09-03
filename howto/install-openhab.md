@@ -162,15 +162,23 @@ sudo systemctl restart mosquitto
 
 ### Verify that mosquitto is up and running
 
+**Verify the Mosquitto service is runnning**
+
 {% highlight bash %}
 sudo systemctl enable mosquitto.service.
 sudo systemctl daemon-reload
 {% endhighlight %}
 
-Open a second terminal and run the following to publish a message
+**Verfiy that a message can be published**
 
+Open a terminal and run the follow to subscribe to a topic
 {% highlight bash %}
 mosquitto_sub -t "topic/test"
+{% endhighlight %}
+
+Open a second terminal and run the following to publish a message
+{% highlight base %}
+mosquitto_pub -t topic/test -m "test"
 {% endhighlight %}
 
 [buildmosquitto]: http://blog.thingstud.io/recipes/how-to-make-your-raspberry-pi-the-ultimate-iot-hub/
